@@ -9,7 +9,7 @@ const MoodNotesLandingPage = () => {
         
         {/* Background Circles */}
         <svg
-          className="absolute inset-0 w-full h-full opacity-80"
+          className="absolute inset-0 w-full h-full opacity-80 hidden lg:grid"
           viewBox="0 0 1400 800"
           preserveAspectRatio="xMidYMid meet"
           xmlns="http://www.w3.org/2000/svg"
@@ -27,10 +27,10 @@ const MoodNotesLandingPage = () => {
             <img 
               src={love} 
               alt="Sparkling Heart" 
-              className="w-14 h-14 md:w-16 md:h-16 object-contain"
+              className="w-10 h-10 md:w-16 md:h-16 object-contain"
             />
             <h1
-              className="text-5xl md:text-6xl font-extrabold"
+              className="text-4xl md:text-6xl font-extrabold"
               style={{
                 color: 'transparent',
                 backgroundClip: 'text',
@@ -43,13 +43,13 @@ const MoodNotesLandingPage = () => {
           </div>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-600 mb-10 font-medium">
+          <p className="text-sm lg:text-lg md:text-xl text-gray-600 mb-10 font-medium">
             Track your emotions, one note at a time
           </p>
 
           {/* CTA Button */}
           <Link to='/signin'>
-          <button className="bg-white text-purple-600 px-6 py-2 text-sm rounded-md shadow-sm hover:shadow-md transition">
+          <button className="bg-white text-purple-600 px-6 py-2 text-xs md:text-sm rounded-md shadow-sm hover:shadow-md transition">
             Proceed to Sign In to Your Account &gt;&gt;&gt;
           </button>
           </Link>
