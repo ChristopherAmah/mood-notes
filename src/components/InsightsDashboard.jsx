@@ -50,7 +50,7 @@ const InsightsDashboard = () => {
   const tabNames = ['Mood Trends', 'Mood Distribution', 'Patterns & Insights'];
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#FEF2F2] to-[#FAF5FF] p-6 sm:p-8 md:p-10 lg:p-20 lg:px-26">
+    <div className="min-h-screen bg-gradient-to-b from-[#FEF2F2] via-[#FEF2F2] to-[#FAF5FF] p-6 sm:p-8 md:p-10 lg:p-20 lg:px-26">
       
       {/* Header Section */}
       <div className="mb-8">

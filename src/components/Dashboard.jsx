@@ -80,7 +80,7 @@ const Dashboard = () => {
     );
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-[#F0FDF4] to-[#FAF5FF] p-6 sm:p-8 md:p-10 lg:p-20 lg:px-26 font-sans">
+        <div className="min-h-screen bg-gradient-to-b from-[#F0FDF4] via-[#F0FDF4] to-[#FAF5FF] p-6 sm:p-8 md:p-10 lg:p-20 lg:px-26 font-sans">
             
             {/* Welcome Section (Good Morning, User!) */}
             <div className="mb-8">
