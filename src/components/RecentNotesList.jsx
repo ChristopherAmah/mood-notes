@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpen, Calendar, Clock, MoreHorizontal } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // 🗑️ Removed fallbackNotes. Component relies entirely on the 'notes' prop.
 
@@ -58,12 +59,14 @@ const RecentNotesList = ({ notes }) => {
           <BookOpen className="w-6 h-6 text-[#9810FA]" />
           <span>Your Recent Notes</span>
         </h2>
+        <Link to={'/insights'}>
         <button 
           className="px-4 py-2 text-[14px] font-sans rounded-[8px] border border-[#E9D4FF]
                      bg-[#FFFFFF] text-[#9810FA] hover:bg-purple-100 transition duration-150"
         >
           View All Insights
         </button>
+        </Link>
       </div>
 
       {/* Notes List */}

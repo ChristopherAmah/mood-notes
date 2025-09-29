@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import love from '../assets/love.png'; 
 // Import icons from react-icons/fa (or fi/md, depending on your preference)
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+import { Link } from 'react-router-dom';
 
 const CreateAccountForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -124,9 +125,9 @@ const CreateAccountForm = () => {
           {/* Footer Link */}
           <p className="mt-6 text-center text-sm text-gray-600">
             Already have an account? 
-            <a href="/signin" className="font-medium text-purple-600 hover:text-purple-800 transition duration-150 ml-1">
+            <Link to="/signin" className="font-medium text-purple-600 hover:text-purple-800 transition duration-150 ml-1">
               Sign In
-            </a>
+            </Link>
           </p>
         </div>
       </div>

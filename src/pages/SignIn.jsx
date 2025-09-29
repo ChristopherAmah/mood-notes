@@ -119,9 +119,9 @@ const SignInForm = () => {
           {/* Sign Up Link */}
           <p className="mt-2 text-center text-sm text-gray-600">
             Don't have an account? 
-            <a href="/signup" className="font-medium text-purple-600 hover:text-purple-800 transition duration-150 ml-1">
+            <Link to="/signup" className="font-medium text-purple-600 hover:text-purple-800 transition duration-150 ml-1">
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>

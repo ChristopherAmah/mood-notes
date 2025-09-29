@@ -1,103 +1,94 @@
 import React from 'react';
-// Changed RefreshCw to Moon to better match the 'Evening Reflection' theme
-import { Sun, Calendar, Zap, Smile, Moon } from 'lucide-react'; 
+import { Sun, Calendar, Zap, Smile, Moon } from 'lucide-react';
 
 const PatternsInsightsContent = () => {
-  
-  // NOTE: The entire component should be wrapped in a main Insights page component
-  // which provides the light pink/purple background.
-
   return (
-    <div className="p-6">
+    <div className="p-6 min-h-screen">
       
       {/* Top Insights Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         
-        {/* Best Days Card (Top Left) - Styled to match image: White background, no complex borders/shadows */}
-        <div className="bg-white p-8 rounded-xl shadow-md min-h-[250px] flex flex-col justify-center items-center text-center">
-          {/* Title and Icon */}
-          <div className="flex items-center text-xl font-semibold text-gray-800 mb-4">
-            Best Days <Sun className="w-5 h-5 text-yellow-500 ml-2" />
+        {/* Best Days */}
+        <div className="bg-white p-8 rounded-[14px] min-h-[220px] flex flex-col border border-[#0000001A]">
+          <div className="flex items-start text-[14px] font-sans text-[#0A0A0A] mb-5">
+            Best Days <Sun className="w-5 h-5 text-[#EFB100] ml-2" />
           </div>
-          {/* Emoji */}
-          <span className="text-5xl mb-4">
-            😊 {/* Changed to simple happy emoji */}
-          </span> 
-          {/* Main Text */}
-          <p className="text-xl font-bold text-gray-800 mb-2">
+          <span className="text-[14px] font-sans mb-4 justify-center items-center text-center">😊</span>
+          <p className="text-[14px] font-sans text-[#0A0A0A] mb-1 justify-center items-center text-center">
             Fridays are your happiest!
           </p>
-          {/* Description */}
-          <p className="text-gray-600 px-4">
+          <p className="text-[#4A5565] text-[14px] font-sans px-4 justify-center items-center text-center">
             You tend to feel most positive towards the end of the week
           </p>
         </div>
 
-        {/* Evening Reflection Card (Top Right) - Styled to match image: White background, no complex borders/shadows */}
-        <div className="bg-white p-8 rounded-xl shadow-md min-h-[250px] flex flex-col justify-center items-center text-center">
-          {/* Title and Icon */}
-          <div className="flex items-center text-xl font-semibold text-gray-800 mb-4">
-            Evening Reflection <Moon className="w-5 h-5 text-blue-500 ml-2" /> 
+        {/* Evening Reflection */}
+        <div className="bg-white p-8 rounded-[14px] min-h-[220px] flex flex-col  border border-[#0000001A]">
+          <div className="flex items-start text-[14px] font-sans text-[#0A0A0A] mb-5">
+            Evening Reflection <Moon className="w-5 h-5 text-[#2B7FFF] ml-2" />
           </div>
-          {/* Emoji */}
-          <span className="text-5xl mb-4">
-            📝 {/* Changed to writing/reflection emoji */}
-          </span> 
-          {/* Main Text */}
-          <p className="text-xl font-bold text-gray-800 mb-2">
+          <span className="text-[14px] font-sans mb-4 justify-center items-center text-center">🌅</span>
+          <p className="text-[14px] font-sans text-[#0A0A0A] mb-1 justify-center items-center text-center">
             You write most in the evening
           </p>
-          {/* Description */}
-          <p className="text-gray-600 px-4">
+          <p className="text-[#4A5565] text-[14px] px-4 justify-center items-center text-center">
             Evening reflections help you process the day
           </p>
         </div>
       </div>
 
-      {/* Recent Insights Header */}
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">
+      <div className='bg-[#FFFFFF] rounded-[14px] p-8 border border-[#0000001A]'>
+        {/* Recent Insights */}
+      <h3 className="text-[14px] font-sans text-[#0A0A0A] mb-4">
         Recent Insights
       </h3>
 
-      {/* Recent Insights Cards Grid (Bottom Row) */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        
-        {/* Card 1: Positive Trend (Green accents) */}
-        {/* Key change: simplified shadow, using light color border for the outline */}
-        <div className="bg-white p-5 rounded-xl shadow-sm border-2 border-green-200">
+        {/* Positive Trend */}
+        <div className="bg-[#FEF2F2] p-5 rounded-[10px] border border-[#B9F8CF]">
           <div className="flex items-center mb-2">
-            <Smile className="w-6 h-6 text-green-500 mr-2" />
-            <span className="text-md font-bold text-gray-800">Positive Trend</span>
+            <div className='grid'>
+              <Smile className="w-5 h-5 text-[#00A63E] mb-2" />
+            <span className="font-sans text-[#00A63E] text-[14px]">
+              Positive Trend
+            </span>
+            </div>
           </div>
-          <p className="text-green-600">
+          <p className="text-[#008236] text-[14px] font-sans">
             Your mood has been improving over the past week!
           </p>
         </div>
 
-        {/* Card 2: Consistency Win (Blue/Purple accents, matching the image's calendar icon/text) */}
-        {/* Key change: simplified shadow, using light color border for the outline */}
-        <div className="bg-white p-5 rounded-xl shadow-sm border-2 border-blue-200">
+        {/* Consistency Win */}
+        <div className="bg-[#FEF2F2] p-5 rounded-[10px] border border-[#BEDBFF]">
           <div className="flex items-center mb-2">
-            <Calendar className="w-6 h-6 text-blue-500 mr-2" />
-            <span className="text-md font-bold text-gray-800">Consistency Win</span>
+            <div className='grid'>
+              <Calendar className="w-5 h-5 text-[#155DFC] mb-2" />
+            <span className="font-sans text-[#193CB8] text-[14px]">
+              Consistency Win
+            </span>
+            </div>
           </div>
-          <p className="text-blue-600">
-            You've been journaling regularly. Great habit!
+          <p className="text-[#1447E6] text-[14px] font-sans">
+            You&apos;ve been journaling regularly. Great habit!
           </p>
         </div>
 
-        {/* Card 3: Self-Awareness (Purple accents) */}
-        {/* Key change: simplified shadow, using light color border for the outline */}
-        <div className="bg-white p-5 rounded-xl shadow-sm border-2 border-purple-200">
+        {/* Self-Awareness */}
+        <div className="bg-[#FAF5FF] p-5 rounded-[10px] border border-[#E9D4FF]">
           <div className="flex items-center mb-2">
-            <Zap className="w-6 h-6 text-purple-500 mr-2" />
-            <span className="text-md font-bold text-gray-800">Self-Awareness</span>
+            <div className='grid'>
+              <Zap className="w-5 h-5 text-[#9810FA] mb-2" />
+            <span className="font-sans text-[#6E11B0] text-[14px]">
+              Self-Awareness
+            </span>
+            </div>
           </div>
-          <p className="text-purple-600">
+          <p className="text-[#8200DB] text-[14px] font-sans">
             Your notes show great emotional insight.
           </p>
         </div>
-
+      </div>
       </div>
     </div>
   );

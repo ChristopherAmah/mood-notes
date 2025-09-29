@@ -21,6 +21,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm p-4 flex items-center justify-between lg:px-26">
       {/* Logo */}
+      <Link to={'/home'}>
       <div className="flex items-center space-x-2">
         <img src={navlogo} alt="Mood Notes" className="w-6 h-6 object-contain" />
         <span
@@ -35,6 +36,7 @@ const Navbar = () => {
           Mood Notes
         </span>
       </div>
+      </Link>
 
       {/* Desktop Nav Links */}
       <div className="hidden md:flex ms-auto space-x-6">
