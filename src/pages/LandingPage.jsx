@@ -1,23 +1,19 @@
 import React from 'react';
-import love from '../assets/love.png'; // heart icon with sparkle
+import navlogo from '../assets/navlogo.png'; // heart icon with sparkle
+import circles from '../assets/circles.png'; // your background circle image
 import { Link } from 'react-router-dom';
 
 const MoodNotesLandingPage = () => {
   return (
-    <section className="min-h-screen bg-indigo-50 flex items-center justify-center p-4">
-      <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
+    <section className="min-h-screen bg-gradient-to-b from-[#EEF2FF] via-[#EEF2FF] to-[#FAF5FF] flex items-center justify-center p-4 lg:p-26">
+      <div className="relative w-full h-full  flex items-center justify-center">
         
-        {/* Background Circles */}
-        <svg
-          className="absolute inset-0 w-full h-full opacity-80 hidden lg:grid"
-          viewBox="0 0 1400 800"
-          preserveAspectRatio="xMidYMid meet"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="100" cy="400" r="330" fill="none" stroke="#b794f4" strokeWidth="3" />
-          <circle cx="700" cy="400" r="330" fill="none" stroke="#b794f4" strokeWidth="3" />
-          <circle cx="1300" cy="400" r="330" fill="none" stroke="#b794f4" strokeWidth="3" />
-        </svg>
+        {/* Background Circles as Images */}
+        <img 
+          src={circles} 
+          alt="Circle Background Left" 
+          className="absolute  opacity-70 hidden lg:block"
+        />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center p-8">
@@ -25,12 +21,12 @@ const MoodNotesLandingPage = () => {
           {/* Title/Logo */}
           <div className="flex items-center space-x-3 mb-4">
             <img 
-              src={love} 
+              src={navlogo} 
               alt="Sparkling Heart" 
-              className="w-10 h-10 md:w-16 md:h-16 object-contain"
+              className="w-10 h-10 md:w-30 md:h-30 object-contain"
             />
             <h1
-              className="text-4xl md:text-6xl font-extrabold"
+              className="text-4xl md:text-[120px] font-bold font-sans"
               style={{
                 color: 'transparent',
                 backgroundClip: 'text',
@@ -43,15 +39,15 @@ const MoodNotesLandingPage = () => {
           </div>
 
           {/* Subtitle */}
-          <p className="text-sm lg:text-lg md:text-xl text-gray-600 mb-10 font-medium">
+          <p className="text-sm lg:text-lg md:text-[32px] text-[#4A5565] mb-10 font-medium">
             Track your emotions, one note at a time
           </p>
 
           {/* CTA Button */}
-          <Link to='/signin'>
-          <button className="bg-white text-purple-600 px-6 py-2 text-xs md:text-sm rounded-md shadow-sm hover:shadow-md transition">
-            Proceed to Sign In to Your Account &gt;&gt;&gt;
-          </button>
+          <Link to='/signup'>
+            <button className="bg-white text-[#9810FA] px-6 py-2 text-[10px] md:text-[14px] rounded-[8px] hover:shadow-md transition">
+              Proceed to Sign In to Your Account &gt;&gt;&gt;
+            </button>
           </Link>
         </div>
       </div>

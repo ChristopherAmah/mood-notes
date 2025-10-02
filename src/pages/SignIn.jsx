@@ -1,32 +1,56 @@
 import React, { useState } from 'react';
 import navlogo from '../assets/navlogo.png'; 
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [identifier, setIdentifier] = useState(""); // <-- updated name
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, handle sign-in/authentication logic here.
-    console.log('Attempting to sign in...');
+    setErrorMessage("");
+
+    try {
+      const response = await axios.post(
+        "https://moodnote-jbpm.onrender.com/auth/login",
+        { identifier, password }, // <-- send correct field
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      console.log("Login successful:", response.data);
+
+      // Save token in localStorage
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+      }
+
+      // Redirect to home
+      navigate("/home");
+    } catch (error) {
+      if (error.response) {
+        setErrorMessage(error.response.data.msg || "Login failed");
+      } else {
+        setErrorMessage("Something went wrong. Please try again.");
+      }
+    }
   };
 
   return (
-    // Main Section: Full height, centers the content block.
     <section className='min-h-screen bg-gradient-to-b from-[#EEF2FF] via-[#EEF2FF] to-[#FAF5FF] flex items-center justify-center p-4'>
       <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
         
         {/* Header - Logo and Title */}
         <div className="flex items-center space-x-2 mb-2">
-          {/* Logo */}
-          <img src={navlogo} alt="Sparkling Heart" className="w-8 h-8 object-contain" />
-          
-          {/* Title with Gradient */}
+          <img src={navlogo} alt="Logo" className="w-8 h-8 object-contain" />
           <h1 
             className="text-[36px] font-bold font-sans"
             style={{ 
@@ -40,29 +64,31 @@ const SignInForm = () => {
           </h1>
         </div>
         
-        {/* Tagline */}
         <p className="text-[16px] text-[#4A5565] mb-8 font-sans">
           Track your emotions, one note at a time
         </p>
 
-        {/* Form Card */}
         <div className="bg-white p-8 rounded-[14px] shadow-2xl w-full">
-          
-          {/* Welcome Message */}
           <h2 className="text-[16px] font-sans text-[#0A0A0A] mb-1 text-center">Welcome Back</h2>
-          <p className="text-[#717182] mb-6 text-center font-sans text-[16px]">Sign in to continue tracking your moods</p>
+          <p className="text-[#717182] mb-6 text-center font-sans text-[16px]">
+            Sign in to continue tracking your moods
+          </p>
+
+          {errorMessage && (
+            <div className="mb-4 text-red-600 text-sm text-center">{errorMessage}</div>
+          )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            
             {/* Email/Username Input */}
             <div>
-              <label htmlFor="loginId" className="block text-[14px] font-sans text-[#0A0A0A] mb-1">
+              <label htmlFor="identifier" className="block text-[14px] font-sans text-[#0A0A0A] mb-1">
                 Email/Username
               </label>
               <input
                 type="text"
-                id="loginId"
-                name="loginId"
+                id="identifier"
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
                 placeholder="Enter email/username"
                 className="w-full px-4 py-2 border border-[#00000040] rounded-[8px] focus:ring-purple-500 focus:border-purple-500 transition duration-150"
                 required
@@ -78,7 +104,8 @@ const SignInForm = () => {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   id="password"
-                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   className="w-full px-4 py-2 border border-[#00000040] rounded-[8px] focus:ring-purple-500 focus:border-purple-500 pr-10 transition duration-150" 
                   required
@@ -94,8 +121,7 @@ const SignInForm = () => {
               </div>
             </div>
 
-            {/* Submit Button with Gradient */}
-           <Link to='/home'>
+            {/* Submit Button */}
             <button 
               type="submit" 
               className="w-full py-2.5 text-white font-sans rounded-[8px] mt-6 
@@ -104,17 +130,16 @@ const SignInForm = () => {
             >
               Sign In
             </button>
-           </Link>
           </form>
           
-          {/* Forgot Password Link */}
-          <p className="mt-4 text-center text-[14px]">
-            <a href="/forgot-password" className="font-sans text-[#9810FA] hover:text-purple-600 transition duration-150">
-              Forgot your password?
-            </a>
-          </p>
+          <Link to={'/forgot-password'}>
+            <p className="mt-4 text-center text-[14px]">
+              <span className="font-sans text-[#9810FA] hover:text-purple-600 transition duration-150">
+                Forgot your password?
+              </span>
+            </p>
+          </Link>
 
-          {/* Sign Up Link */}
           <p className="mt-2 text-center text-[14px] font-sans text-[#4A5565]">
             Don't have an account? 
             <Link to="/signup" className="font-sans text-[#9810FA] hover:text-purple-800 transition duration-150 ml-1">

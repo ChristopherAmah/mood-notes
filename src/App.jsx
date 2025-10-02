@@ -9,6 +9,7 @@ import SignIn from './pages/SignIn'
 import Home from './pages/Home'
 import Insights from './pages/Insights'
 import Profile from './pages/Profile'
+import ForgotPassword from "./pages/ForgotPassword";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/insights' element={<Insights />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </div>
   )
